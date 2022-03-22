@@ -10,26 +10,51 @@
 	<script src="https://kit.fontawesome.com/4c9e98f632.js" crossorigin="anonymous"></script>
 </head>
 
+<span class="hamburger" style="font-size:30px;cursor:pointer" id="hamburger" onclick="openNav()"><i
+		class="fa-solid fa-bars"></i></span>
+
 <body>
 	<!-- Navbar Start -->
-	<details>
-		<summary></summary>
-		<nav class="menu">
-			<a href="#link">Home</a>
-			<a href="#link">Music</a>
-			<a href="#link">Work</a>
-			<a href="#link">Contact</a>
-			<a href="#link">Sign Up</a>
-			<a href="#link">Log In</a>
-		</nav>
-	</details>
-<!-- Navbar End -->
+	<div id="navbar" class="nav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="/">Home</a>
+		<a href="#">About</a>
+		<a href="#">Work</a>
+		<a href="./releases/">Music</a>
+		<a href="#">Contact</a>
+	</div>
+	<!-- Navbar End -->
 
-<!-- Main Content Start-->
+	<!-- Main Content Start-->
 
+	<div class="container">
+		<main class="mainframe">
+			<h1 class="container__text">Wired Design</h1>
+			<h2>Currently Listening 🔊</h2>
+<iframe
+  frameborder="0"
+  height="280"
+  id="github-iframe"
+  src="https://5555-wireddesigns-wireddesign-wttmmqta4v3.ws-eu38.gitpod.io/player.html"
+  width="100%"
+></iframe>
 
-<!-- Main Content End -->
-<!-- Footer Start -->
+</script>
+
+		</main>
+
+	</div>
+	<div id="spotify-widget"></div>
+	<div class="container">
+		<main class="mainframe">
+			<h1>Numbers of subscribers</h1>
+			<iframe height="80px" width="300px" frameborder="0"
+				src="https://livecounts.io/embed/youtube-live-subscriber-counter/UCo-BgTJOHMh3XvX9CMOuwIw"
+				style="border: 0; width:300px; height:80px; display:flex; justify-content: center;"></iframe>
+		</main>
+	</div>
+	<!-- Main Content End -->
+	<!-- Footer Start -->
 	<div class="social-panel-container">
 		<div class="social-panel">
 			<p>Created with <i class="fa fa-heart"></i>
@@ -66,15 +91,22 @@
 	<div class="buttons">
 		<input id="toggle" type="button" value="Toggle Light/Dark Mode" class="button">
 	</div>
-	
-	
+
+
+
 	<div class="floating-text">
 		&copy; WiredDesign 2021-2022
 	</div>
 
-<!-- Footer End -->
+	<!-- Footer End -->
+	<!-- Scripts -->
+
+
 	<script type="text/javascript" src="./js/darkmode.js"></script>
+	<script type="text/javascript" src="./js/navbar.js"></script>
 	<script type="text/javascript" src="./js/footerandsocialmenu.js"></script>
+	
+	<!-- Scripts End -->
 </body>
 
 </html>

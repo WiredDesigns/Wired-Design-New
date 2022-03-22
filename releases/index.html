@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+
+	<link href="../css/style.css" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/4c9e98f632.js" crossorigin="anonymous"></script>
+
+	<!-- Carousel Styling-->
+	<link rel="stylesheet" href="../css/owl.carousel.min.css">
+	<link rel="stylesheet" href="../css/owl.theme.default.min.css">
+</head>
+
+<body>
+
+
+
+	<span class="hamburger" style="font-size:30px;cursor:pointer" id="hamburger" onclick="openNav()"><i
+			class="fa-solid fa-bars"></i></span>
+
+	<!-- Navbar Start -->
+	<div id="navbar" class="nav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="/">Home</a>
+		<a href="#">About</a>
+		<a href="#">Work</a>
+		<a href="#">Music</a>
+		<a href="#">Contact</a>
+	</div>
+	<!-- Navbar End -->
+
+	<!-- Main Content Start-->
+
+	<div class="container">
+		<main class="mainframe">
+			<h1 class="container__text">My Music</h1>
+
+		</main>
+
+	</div>
+
+	<div class="container">
+		<main class="mainframe">
+			<!-- <span class="carouselbuttons"onclick="left()"><i class="fa-solid fa-arrow-left arrows"></i></span> -->
+			<div class="customNavigation">
+				<button onclick="prev()"class="prev"> Previous </button>
+				<button onclick="next()"class="next"> Next </button>
+			  </div>
+			<div class="owl-carousel">
+				<div class="item"><img src="../images/releasescover/1.png"></div>
+				<div><img src="../images/releasescover/2.png"></div>
+				<div><img src="../images/releasescover/3.png"></div>
+			</div>
+		</main>
+	</div>
+
+
+	<!-- Main Content End -->
+	<!-- Footer Start -->
+	<div class="social-panel-container">
+		<div class="social-panel">
+			<p>Created with <i class="fa fa-heart"></i>
+			</p>
+			<button class="close-btn"><i class="fas fa-times"></i></button>
+			<h4>Get in touch on</h4>
+			<ul>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-youtube"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-spotify"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-soundcloud"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" target="_blank">
+						<i class="fab fa-instagram"></i>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<button class="floating-btn">
+		Get in Touch
+	</button>
+	<div class="buttons">
+		<input id="toggle" type="button" value="Toggle Light/Dark Mode" class="button">
+	</div>
+
+
+	<div class="floating-text">
+		&copy; WiredDesign 2021-2022
+	</div>
+
+	<!-- Footer End -->
+
+		<!-- Scripts -->
+		<script type="text/javascript" src="../js/darkmode.js"></script>
+		<script type="text/javascript" src="../js/navbar.js"></script>
+		<script type="text/javascript" src="../js/footerandsocialmenu.js"></script>
+		<script src="../js/jquery.min.js"></script>
+		<script src="../js/owl.carousel.min.js"></script>
+		<script src="../js/carousel.js"></script>
+		<!-- Scripts End -->
+	<script type="text/javascript">
+	var owl = $('.owl-carousel');
+	owl.owlCarousel({
+    loop:true,
+    nav:true,
+	navText:["<div class='nav-btn prev-slide'></div>","<div class='nav-btn next-slide'></div>"],
+    margin:10,
+    responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },            
+        960:{
+            items:5
+        },
+        1200:{
+            items:6
+        }
+    }
+});
+owl.on('mousewheel', '.owl-stage', function (e) {
+    if (e.deltaY>0) {
+        owl.trigger('next.owl');
+    } else {
+        owl.trigger('prev.owl');
+    }
+    e.preventDefault();
+
+ 
+});
+
+
+
+function prev() {
+	owl.trigger('prev.owl');
+}
+function next() {
+	owl.trigger('next.owl');
+}
+	</script>
+
+</body>
+
+</html>
