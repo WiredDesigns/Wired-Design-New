@@ -18,6 +18,12 @@ module.exports = {
 
     if(!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "You do not have permission to use this command.", ephermal: true });
 
+    if(!reason){
+      reason = 'No reason provided'
+    }
+
+    const user = interaction.member
+
     const embed = new MessageEmbed()
       .setTitle(`Timed out ${member.user.username}#${member.user.discriminator}`) 
       .setDescription(`${member.user.username}#${member.user.discriminator} has been timed out`)
@@ -25,12 +31,10 @@ module.exports = {
         {name: `Duration: `, value: `${ms(time, {long: true})}`},
         {name: `Reason: `, value: `${reason}`}
       )
-      .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
+      .setColor(user.displayHexColor === "#000000" ? "#ffffff" : user.displayHexColor)
       .setFooter("Made by Wired Design#1487 with ❤️")
 
-    if(!reason){
-      reason = 'No reason provided'
-    }
+
     if(!time) return interaction.reply({ content: "Given time is not valid, it is necessary that you provide valid time.", ephermal: true })
     const response = await member.timeout(time, reason)
 
