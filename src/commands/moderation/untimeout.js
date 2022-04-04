@@ -13,9 +13,11 @@ module.exports = {
 
   const member = interaction.options.getMember('member')
   let reason = interaction.options.getString('reason') ||null
-  const time = ms("0m")
+  
 
     if(!interaction.member.permissions.has("ADMINISTRATOR")) return interaction.reply({ content: "You do not have permission to use this command.", ephermal: true });
+
+    const user = interaction.member
 
     const embed = new MessageEmbed()
       .setTitle(`Timeout Removed for ${member.user.username}#${member.user.discriminator}`) 
@@ -23,14 +25,14 @@ module.exports = {
       .addFields(
         {name: `Reason: `, value: `${reason}`}
       )
-      .setColor(member.displayHexColor === "#000000" ? "#ffffff" : member.displayHexColor)
+      .setColor(user.displayHexColor === "#000000" ? "#ffffff" : user.displayHexColor)
       .setFooter("Made by Wired Design#1487 with ❤️")
 
     if(!reason){
       reason = 'No reason provided'
     }
-    if(!time) return interaction.reply({ content: "Given time is not valid, it is necessary that you provide valid time.", ephermal: true })
-    const response = await member.timeout(time, reason)
+    
+    const response = await member.timeout(0, reason)
 
     if(!response) return interaction.reply({ content: "I am sorry but for some reason I am unable to timeout this member."})
     return interaction.reply({embeds: [embed]})
