@@ -9,7 +9,6 @@ module.exports = {
   .setName("meme")
   .setDescription("Sends meme from reddit"),
   async execute(interaction, client) {
-    console.log(interaction)
 
     
 
