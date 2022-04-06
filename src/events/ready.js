@@ -8,8 +8,8 @@ module.exports = {
     client.user.setPresence({
         activities: [
            {
-            name: "/ Commands",
-            type: "WATCHING"
+            name: "/ commands",
+            type: "PLAYING"
            },
         ],
     })
