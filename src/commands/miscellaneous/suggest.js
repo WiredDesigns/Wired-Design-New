@@ -19,6 +19,24 @@ module.exports = {
       
         const channel = member.guild.channels.cache.find(channel => channel.name == channelname)
       
+        const yes = 0
+        const no = 0
+
+        const clickbuttons = new MessageActionRow()
+          .addComponents(
+            new MessageButton()
+              .setCustomId("yes")
+              .setLabel(`Yes. [${yes}]`)
+              .setStyle("SUCCESS"),
+            new MessageButton()
+              .setCustomId("no")
+              .setLabel(`No. [${no}]`)
+              .setStyle("DANGER"),
+          )
+                 
+
+          
+
 
         const embed = new MessageEmbed()
           .setTitle(`${interaction.user.username}#${interaction.user.discriminator} has sent a Suggestion`)
@@ -31,16 +49,19 @@ module.exports = {
 
   
                   
-            const message = await channel.send({ embeds: [embed] })
+            const message = await channel.send({ embeds: [embed] , components: [clickbuttons]})
             message.react("👍")
             message.react("👎")
 
 
 
+
+            
+
         const successmsg = "Sent the suggestion to " + interaction.guild.channels.cache.find(channel => channel.name === channelname).toString();
     
 
-        
+
         interaction.reply({content: `${successmsg}`})
       } else {
 
