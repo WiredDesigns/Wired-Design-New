@@ -20,12 +20,13 @@ module.exports = {
         const channel = member.guild.channels.cache.find(channel => channel.name == channelname)
        
 
-          
+ 
 
 
         const embed = new MessageEmbed()
           .setTitle(`${interaction.user.username}#${interaction.user.discriminator} has sent a Suggestion`)
           .setDescription(`${suggestion}`)
+          .addFields()
           .setThumbnail(`${interaction.user.displayAvatarURL()}`)
           .setTimestamp()
           .setFooter("Created by Wired Design with ❤️")
@@ -47,7 +48,11 @@ module.exports = {
     
 
 
-        interaction.reply({content: `${successmsg}`})
+        interaction.reply({content: `${successmsg}`}).then (() => {
+          while (true) {
+            interaction.editReply({embeds: [embed]})
+          }
+        })
       } else {
 
         const channelcreatemsg = "Create a channel called ``" + channelname + "``" 
