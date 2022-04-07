@@ -18,22 +18,7 @@ module.exports = {
         let suggestion = interaction.options.getString('suggestion')
       
         const channel = member.guild.channels.cache.find(channel => channel.name == channelname)
-      
-        const yes = 0
-        const no = 0
-
-        const clickbuttons = new MessageActionRow()
-          .addComponents(
-            new MessageButton()
-              .setCustomId("yes")
-              .setLabel(`Yes. [${yes}]`)
-              .setStyle("SUCCESS"),
-            new MessageButton()
-              .setCustomId("no")
-              .setLabel(`No. [${no}]`)
-              .setStyle("DANGER"),
-          )
-                 
+       
 
           
 
@@ -49,7 +34,7 @@ module.exports = {
 
   
                   
-            const message = await channel.send({ embeds: [embed] , components: [clickbuttons]})
+            const message = await channel.send({ embeds: [embed]})
             message.react("👍")
             message.react("👎")
 
