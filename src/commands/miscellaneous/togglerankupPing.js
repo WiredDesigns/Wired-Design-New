@@ -28,21 +28,21 @@ module.exports = {
             const currenttype = rankpingtoggleProfile.pingenabled
             if(choice === 'enabled') {
                 if(currenttype === true) {
-                    interaction.editReply({content: `You already have ${choice} active for the rank up ping ...!`});
+                    interaction.editReply({content: `You already have ${choice} active for the level up ping ...!`});
                 } else {
                     await rankpingToggle.findOneAndUpdate({ _id: rankpingtoggleProfile._id }, { pingenabled: true }).then(() => {
                         
-                        interaction.editReply({content: `You have successfully enabled the rank up ping`});
+                        interaction.editReply({content: `You have successfully enabled the level up ping`});
                     }).catch(err => {
                         console.log(err);
                     });
                 }
             } else if(choice === 'disabled') {
                 if(currenttype === false) {
-                    interaction.editReply({content: `You already have ${choice} active for the ranking system ...!`});
+                    interaction.editReply({content: `You already have ${choice} active for the level up ping ...!`});
                 } else {
                     await rankpingToggle.findOneAndUpdate({ _id: rankpingtoggleProfile._id }, { pingenabled: false }).then(() => {
-                        interaction.editReply({content: `You have successfully disabled the rank up ping`});
+                        interaction.editReply({content: `You have successfully disabled the level up ping`});
                     }).catch(err => {
                         console.log(err);
                     });
