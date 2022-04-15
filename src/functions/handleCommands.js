@@ -5,7 +5,7 @@ const fs = require('fs');
 // Variables
 
 const clientId = '960989885186068480';
-const guildId = '920615882865139732';
+const guildId = '918793821301641218';
 const TOKEN = process.env.TOKEN;
 
 module.exports = (client) => {
