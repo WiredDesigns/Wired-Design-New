@@ -1,7 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageAttachment } = require('discord.js');
 const Ranks = require('../../schemas/ranks');
-const ranksystemEnabled = require('../../schemas/levelingsystemenabled');
+const guildSettings = require('../../schemas/guildsettings')
 
 
 module.exports = {
@@ -23,15 +23,15 @@ module.exports = {
             await interaction.reply({content: 'Please Wait...'});
             let user = interaction.user;
 
-            const ranksystemenabledProfile = await client.ranksystemEnabled(interaction.member);
+            const guildsettingsProfile = await client.guildSettings(interaction.member);
             const choice = interaction.options.getString('status');
             const choiceuppercase = choice.toUpperCase();
-            const currenttype = ranksystemenabledProfile.enabled
+            const currenttype = guildsettingsProfile.ranksystemEnabled
             if(choice === 'enabled') {
                 if(currenttype === true) {
                     interaction.editReply({content: `You already have ${choice} active for the ranking system ...!`});
                 } else {
-                    await ranksystemEnabled.findOneAndUpdate({ _id: ranksystemenabledProfile._id }, { enabled: true }).then(() => {
+                    await guildsettingsProfile.findOneAndUpdate({ _id: guildsettingsProfile._id }, { ranksystemEnabled: true }).then(() => {
                         
                         interaction.editReply({content: `You have successfully enabled the rank system`});
                     }).catch(err => {
@@ -43,7 +43,7 @@ module.exports = {
                     ) {
                     interaction.editReply({content: `You already have ${choice} active for the ranking system ...!`});
                 } else {
-                    await ranksystemEnabled.findOneAndUpdate({ _id: ranksystemenabledProfile._id }, { enabled: false }).then(() => {
+                    await guildsettingsProfile.findOneAndUpdate({ _id: guildsettingsProfile._id }, { ranksystemEnabled: false }).then(() => {
                         interaction.editReply({content: `You have successfully disabled the rank system`});
                     }).catch(err => {
                         console.log(err);

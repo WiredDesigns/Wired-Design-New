@@ -1,5 +1,5 @@
 const Ranks = require('../schemas/ranks');
-const ranksystemenabledProfile = require('../schemas/levelingsystemenabled');
+const guildSettings = require('../schemas/guildsettings');
 const rankpingToggle = require('../schemas/rankpingtoggle');
  
 module.exports = {
@@ -10,9 +10,9 @@ module.exports = {
         
         const ranksProfile = await client.createExperience(message.member);
         const rankpingtoggleProfile = await client.createrankpingToggle(message.member);
-        const ranksystemenabledProfile = await client.ranksystemEnabled(message.member); 
+        const guildsettingsProfile = await client.guildSettings(message.member); 
         
-        if(ranksystemenabledProfile.enabled === false) {
+        if(guildsettingsProfile.ranksystemEnabled === false) {
             return;
         } else {   
 

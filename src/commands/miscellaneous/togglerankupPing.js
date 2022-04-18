@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed, MessageAttachment } = require('discord.js');
 const Ranks = require('../../schemas/ranks');
-const ranksystemEnabled = require('../../schemas/levelingsystemenabled');
 const rankpingToggle = require('../../schemas/rankpingtoggle');
 
 module.exports = {
